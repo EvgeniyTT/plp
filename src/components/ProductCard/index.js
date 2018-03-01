@@ -21,23 +21,25 @@ function ProductCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={`${process.env.PUBLIC_URL}/assets/img/20160925_Paravel_02_01.png`}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography variant="headline" component="h2">
-            Lizard
+            Grand Tour
           </Typography>
           <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+            Collapses fully flat for storage
+          </Typography>
+          <Typography component="p">
+            $325
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button size="small" color="default">
             Share
           </Button>
-          <Button size="small" color="primary">
+          <Button size="small" color="secondary">
             Learn More
           </Button>
         </CardActions>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ProductCard from './components/ProductCard'
 import Navbar from './components/Navbar'
 import FilterList from './components/FilterList'
-import logo from './logo.svg';
 import './App.css';
 
 
