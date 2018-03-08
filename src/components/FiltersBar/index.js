@@ -25,7 +25,7 @@ export class _FiltersBar extends React.Component {
 
     return (
       <div>
-        { filteredProducts.map(product => <ProductCard key={product.id} product={product} />) }
+        { filters.map(filter => <Filter key={filter.id} filter={filter} />) }
       </div>
     );
   }

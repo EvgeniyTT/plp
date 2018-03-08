@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import './style.css';
 
 const styles = {
   card: {
@@ -18,7 +19,7 @@ function ProductCard(props) {
   const { product, classes } = props;
   console.log('product:' , product);
   return (
-    <div>
+    <div className="product">
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}

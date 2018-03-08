@@ -54,10 +54,18 @@ export const colors = [
   }
 ]
 
-export const filters = {
-  categories,
-  colors
-}
+export const filters = [
+  {
+    id: 0,
+    name: 'category',
+    options: categories
+  },
+  {
+    id: 1,
+    name: 'color',
+    options: colors
+  }
+]
 
 export const products = [
   {
