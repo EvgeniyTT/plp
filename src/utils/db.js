@@ -49,7 +49,45 @@ export const colors = [
   },
   {
     id: 5,
+    label: 'Roulette',
     name: 'roulette',
-    label: 'Roulette'
   }
+]
+
+export const filters = {
+  categories,
+  colors
+}
+
+export const products = [
+  {
+    categoty: 2,
+    color: 3,
+    description: 'some description',
+    id: 0,
+    image: '20160925_Paravel_02_01.png',
+    label: 'Label 1',
+    name: 'product',
+    price: 345
+  },
+  {
+    categoty: 1,
+    color: 4,
+    description: 'some description2',
+    id: 1,
+    image: 'Scout-Weekender-Front-PDP-v2.png',
+    label: 'Label 1435',
+    name: 'product',
+    price: 277
+  },
+  {
+    categoty: 0,
+    color: 1,
+    description: 'some description3',
+    id: 2,
+    image: 'BB-Lrg-Pouch-PLP.png',
+    label: 'Label fbdrb',
+    name: 'product',
+    price: 114
+  },
 ]

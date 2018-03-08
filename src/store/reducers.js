@@ -1,47 +1,37 @@
+import * as db from '../utils/db';
+
 import {
+  FETCH_PRODUCTS,
   FILTER_COLOR,
   FILTER_CATEGORY
 } from './actions';
 
 const initialReducer = {
-  drugs: [],
-  drugsPrice: [],
-  hasPreferences: false,
-  healthData: [],
-  isFetching: 0,
-  isSaving: 0,
-  isUnhandledChange: true,
-  providers: [],
-  received: false,
-  messages: {
-    isShown: false,
-    actionItems: {
-      add: [],
-      update: [],
-      delete: [],
-      fail: []
-    }
-  },
-  userProgress: {
-    guideFlowSteps: [],
-    isPreferenceModalShown: false
-  },
-  questions: []
+  allProducts: [],
+  filteredProducts: []
 };
 
 export const reducer = (state = initialReducer, action, storeState) => {
   switch (action.type) {
 
+    case FETCH_PRODUCTS:
+    console.log('FETCH_PRODUCTS!!!');
+    return {
+      ...state,
+      allProducts: db.products,
+      filteredProducts: db.products
+    };
+
     case FILTER_COLOR:
-      return { ...state, ...action.uiconfig.reducer };
+      return {
+        ...state,
+        filteredProducts: state.allProducts.filter(product => product.color === action.color)
+      };
 
     case FILTER_CATEGORY:
       return {
         ...state,
-        drugs: state.drugs.map(drug => ({
-          ...drug,
-          formularies: ((action.drugs.find(scoreDrug => scoreDrug.drug.ndc === drug.ndc) || {}).drug || {}).formularies
-        }))
+        filteredProducts: state.allProducts.filter(product => product.category === action.category)
       };
 
     // case REQUEST_ALPHABETICAL_PRESCRIPTIONS:

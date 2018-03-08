@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ProductCard from './components/ProductCard'
+import ProductList from './components/ProductList'
 import Navbar from './components/Navbar'
-import FilterList from './components/FilterList'
+import FiltersBar from './components/FiltersBar'
 import './App.css';
 
 
@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <div className="App">
         <Navbar />
-        <FilterList />
-        <ProductCard />
+        <FiltersBar />
+        <ProductList />
       </div>
     );
   }

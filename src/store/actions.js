@@ -1,6 +1,7 @@
 // FILTER
 export const FILTER_COLOR = 'FILTER_COLOR';
 export const FILTER_CATEGORY = 'FILTER_CATEGORY';
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
 
 
 // export const resetVisitedSubsidyEstimateIfNeeded = productType =>
@@ -31,6 +32,10 @@ export const FILTER_CATEGORY = 'FILTER_CATEGORY';
 export const filterColor = color => ({
   type: FILTER_COLOR,
   color
+});
+
+export const fetchProducts = () => ({
+  type: FETCH_PRODUCTS
 });
 
 export const filterCategory = category => ({

@@ -15,24 +15,25 @@ const styles = {
 };
 
 function ProductCard(props) {
-  const { classes } = props;
+  const { product, classes } = props;
+  console.log('product:' , product);
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image={`${process.env.PUBLIC_URL}/assets/img/20160925_Paravel_02_01.png`}
+          image={`${process.env.PUBLIC_URL}/assets/img/${product.image}`}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography variant="headline" component="h2">
-            Grand Tour
+            {product.label}
           </Typography>
           <Typography component="p">
-            Collapses fully flat for storage
+            {product.description}
           </Typography>
           <Typography component="p">
-            $325
+           {product.price}
           </Typography>
         </CardContent>
         <CardActions>
