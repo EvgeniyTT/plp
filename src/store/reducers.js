@@ -1,4 +1,5 @@
 import * as db from '../utils/db';
+import { createStore } from 'redux';
 
 import {
   FETCH_FILTERS,
@@ -8,14 +9,14 @@ import {
   FILTER_PRODUCTS
 } from './actions';
 
-const initialReducer = {
+const initialState= {
   filters: [],
   appliedFilters: [],
   allProducts: [],
   filteredProducts: []
 };
 
-export const reducer = (state = initialReducer, action, storeState) => {
+export const reducer = (state = initialState, action, storeState) => {
   switch (action.type) {
 
     case FETCH_FILTERS:
@@ -32,43 +33,22 @@ export const reducer = (state = initialReducer, action, storeState) => {
       };
 
     case FILTER_PRODUCTS:
-      console.log('FILTER_PRODUCTS');
-      console.log('action.filter: ', action.filter);
+ 
+      let newFilters = state.appliedFilters.find(filter => filter.id == action.filter.id)
+      ? state.appliedFilters.map(filter => filter.id == action.filter.id ? action.filter : filter)
+      : [ ...state.appliedFilters, action.filter]
 
-      console.log('state.appliedFilters: ', state.appliedFilters);
-      console.log('state.filters: ', state.filters);
-      console.log('state.allProducts: ', state.allProducts);
-      console.log('state.filteredProducts: ', state.filteredProducts);
+      newFilters = newFilters.filter(filter => filter.optionsId.length);
 
-      console.log('filters: ', 
-            state.appliedFilters.find(filter => filter.id === action.filter.id)
-            ? state.appliedFilters.map(filter => filter.id === action.filter.id ? action.filter : filter)
-            : [ ...state.appliedFilters, action.filter]
-          );
+      let filteredProd = newFilters.reduce((products, filter) => 
+        products.filter(product => filter.optionsId.includes(product[filter.name]))
+      , state.allProducts)
+
       return {
         ...state,
-        appliedFilters: state.appliedFilters.find(filter => filter.id === action.filter.id)
-          ? state.appliedFilters.map(filter => filter.id === action.filter.id ? action.filter : filter)
-          : [ ...state.appliedFilters, action.filter]
-        ,
-        filteredProducts: state.appliedFilters.reduce((products, filter) =>
-          products.filter(product => product => filter.options.includs(product[filter.name]))
-          , state.allProducts)
+        appliedFilters: newFilters,
+        filteredProducts: filteredProd
       };
-
-    // case REQUEST_ALPHABETICAL_PRESCRIPTIONS:
-    //   return {
-    //     ...state,
-    //     isFetching: state.isFetching + 1,
-    //     messages: {
-    //       ...state.messages,
-    //       isShown: false
-    //     }
-    //   };
-
-    // case RECEIVE_ALPHABETICAL_PRESCRIPTIONS:
-    //   return { ...state, isFetching: state.isFetching - 1 };
-
 
     default:
       return state;
@@ -76,3 +56,5 @@ export const reducer = (state = initialReducer, action, storeState) => {
 };
 
 export default reducer;
+
+export const store = createStore(reducer, initialState);

@@ -15,19 +15,18 @@ export class _Filter extends React.Component {
   constructor(props) {
     super(props);
     this.filter = props.filter;
-    this.state = {
-      [props.filter.name]: []
-    };
+    this.state = { ...props.filter, optionsId: [] };
   }
 
   toggleChange = event => {
+    const filterId = parseInt(event.target.id);
+    let optionsId = this.state.optionsId;
     if (event.target.checked) {
-      this.state[this.filter.name].push(event.target.id)
-      this.setState({ [this.filter.name]: this.state[this.filter.name]})
+      optionsId.push(filterId);
     } else {
-      this.setState({ [this.filter.name]: this.state[this.filter.name].filter(id => id !== event.target.id) })
+      optionsId = optionsId.filter(id => id !== filterId);
     }
-    this.props.dispatch(filterProducts(this.state));
+    this.setState({ ...this.state.filter, optionsId }, () => { this.props.dispatch(filterProducts(this.state)) })
   }
 
   render() {
@@ -40,7 +39,7 @@ export class _Filter extends React.Component {
         {filter.options.map(option => (
           <div className={option.name} key={option.id}>
             <label htmlFor={option.id}>{option.label}</label>
-            <input id={option.id} type="checkbox" onChange={this.toggleChange} />
+            <input id={option.id} name={option.name} type="checkbox" onChange={this.toggleChange} />
           </div>
         ))}
       </div>

@@ -17,7 +17,6 @@ const styles = {
 
 function ProductCard(props) {
   const { product, classes } = props;
-  console.log('product:' , product);
   return (
     <div className="product">
       <Card className={classes.card}>
