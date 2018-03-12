@@ -29,52 +29,62 @@ export const categories = [
 export const colors = [
   {
     id: 0,
+    image: 'Cadet-Boxer-PLP1.png',
     name: 'domino',
     label: 'Domino'
   },
   {
     id: 1,
+    image: 'Cadet-Boxer-PLP1.png',
     name: 'scuba',
     label: 'Scuba'
   },
   {
     id: 2,
+    image: 'Cadet-Boxer-PLP1.png',
     name: 'derby',
     label: 'Derby'
   },
   {
     id: 3,
+    image: 'Cadet-Boxer-PLP1.png',
     name: 'flamingo',
     label: 'Flamingo'
   },
   {
     id: 4,
+    image: 'Cadet-Boxer-PLP1.png',
     name: 'scout',
     label: 'Scout'
   },
   {
     id: 5,
+    image: 'Cadet-Boxer-PLP1.png',
     label: 'Roulette',
     name: 'roulette',
   },
   {
     id: 6,
+    image: 'Cadet-Boxer-PLP1.png',
     label: 'Cadet',
     name: 'cadet',
   },
   {
     id: 7,
+    image: 'Cadet-Boxer-PLP1.png',
     label: 'Bebop',
     name: 'bebop',
   },
   {
     id: 8,
+    image: 'Cadet-Boxer-PLP1.png',
     label: 'Jetty',
     name: 'jetty',
   }
   ,
   {
     id: 9,
+    image: 'Cadet-Boxer-PLP1.png',
     label: 'Mallard',
     name: 'mallard',
   }
@@ -112,7 +122,7 @@ export const products = [
     description: 'some description2',
     id: 1,
     isBestSeller: true,
-    isNew: false,
+    isNew: true,
     image: 'BB-Lrg-Pouch-PLP.png',
     label: 'Label 1435',
     name: 'product',
@@ -148,7 +158,7 @@ export const products = [
     description: 'some description33',
     id: 4,
     isBestSeller: true,
-    isNew: false,
+    isNew: true,
     image: 'Bebop-dropdown-menu.png',
     label: 'Label fbdrb',
     name: 'product',
@@ -172,7 +182,7 @@ export const products = [
     description: 'some description33',
     id: 6,
     isBestSeller: false,
-    isNew: false,
+    isNew: true,
     image: 'Cadet-Boxer-PLP1.png',
     label: 'Label fbdrb',
     name: 'product',
@@ -420,7 +430,7 @@ export const products = [
   },
   {
     category: 0,
-    color: 8,
+    color: 9,
     description: 'some description33',
     id: 27,
     isBestSeller: false,

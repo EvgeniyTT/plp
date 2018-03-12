@@ -1,0 +1,10 @@
+
+.selected::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #bb833c;
+  position: absolute;
+  top: 40px;
+}

@@ -1,3 +1,42 @@
-.product {
-  display: inline-block;
+.product-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 330px;
+  height: 450px;
+  padding: 15px;
+
+}
+
+.product-card .best-seller, .product-card .new {
+  height: 40px;
+  width: 100px;
+}
+
+.product-card .image {
+  width: 100%;
+  height: 210px;
+}
+
+.product-card a {
+  display: block;
+  color: #2d4360;
+  text-decoration: none;
+}
+
+.product-card button {
+  border: 1px solid #2d4360;
+  color: #2d4360;
+  padding: 10px 15px 7px;
+  line-height: 1;
+  font-family: Averta-Semibold;
+  margin: 0 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color .3s, color .3s
+}
+
+.product-card button:hover {
+  background-color: #2d4360;
+  color: #fff;
 }

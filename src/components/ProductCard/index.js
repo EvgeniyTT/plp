@@ -1,56 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import './style.css';
 
-const styles = {
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 200,
-  },
-};
+const ProductCard = props => {
+  const { product } = props;
 
-function ProductCard(props) {
-  const { product, classes } = props;
   return (
-    <div className="product">
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image={`${process.env.PUBLIC_URL}/assets/img/${product.image}`}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography variant="headline" component="h2">
-            {product.label}
-          </Typography>
-          <Typography component="p">
-            {product.description}
-          </Typography>
-          <Typography component="p">
-           {product.price}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" color="default">
-            Share
-          </Button>
-          <Button size="small" color="secondary">
-            Learn More
-          </Button>
-        </CardActions>
-      </Card>
+    <div className="product-card">
+      {product.isBestSeller
+        ? <img src={`${process.env.PUBLIC_URL}/assets/img/BestSeller1.png`} className="best-seller" />
+        : null
+      }
+      {!product.isBestSeller && product.isNew
+        ? <img src={`${process.env.PUBLIC_URL}/assets/img/New1.png`} className="new" />
+        : null
+      }
+      {product.isNew}
+      <img className="image" src={`${process.env.PUBLIC_URL}/assets/img/${product.image}`} />
+      <a href="#">{product.label}</a>
+      <a href="#">{product.description}</a>
+      <a href="#">{product.price}</a>
+      <div className="buttons">
+        <button>QUICK ADD</button>
+        <button>PERSONALIZE</button>
+      </div>
     </div>
   );
 }
 
 ProductCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+  product: PropTypes.shape({
+    category: PropTypes.number,
+    color: PropTypes.number,
+    description: PropTypes.string,
+    id: PropTypes.number,
+    isBestSeller: PropTypes.bool,
+    isNew: PropTypes.bool,
+    image: PropTypes.string,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+  }),
 };
 
-export default withStyles(styles)(ProductCard);
+export default ProductCard;

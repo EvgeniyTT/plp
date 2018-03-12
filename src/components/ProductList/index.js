@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchProducts } from '../../store/actions'
 import ProductCard from '../ProductCard';
+import './style.css';
 
 
 export class _ProductList extends React.Component {
@@ -24,7 +25,7 @@ export class _ProductList extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="product-list">
         { filteredProducts.map(product => <ProductCard key={product.id} product={product} />) }
       </div>
     );
