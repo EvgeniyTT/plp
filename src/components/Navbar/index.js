@@ -1,47 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+import './style.css';
 
-const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  flex: {
-    flex: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-};
+const paravelImageSrc = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20191.75%2029.49%22%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3A%23c13426%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3EAsset%201%3C%2Ftitle%3E%3Cg%20id%3D%22Layer_2%22%20data-name%3D%22Layer%202%22%3E%3Cg%20id%3D%22Layer_1-2%22%20data-name%3D%22Layer%201%22%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M129.43%2C29.49h-4.84c.17-1.34-.52-3.16-1.16-5.1-2.33-7.11-4.91-14.67-7.26-21.77A8%2C8%2C0%2C0%2C0%2C115%2C0h5.82s3.55%2C11.85%2C5.31%2C17.56c.56%2C1.83%2C1.11%2C3.66%2C1.67%2C5.49.05.18.14.34.27.66.25-.72.46-1.29.65-1.87C131.06%2C14.71%2C133.61%2C7.14%2C136%2C0h3.87c-1.18.89-4.18%2C10.78-6.15%2C16.16-2.25%2C6.41-4.61%2C11.61-4.26%2C13.32%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M32.66%2C0h4.47s.08.2.14.36Q39.17%2C4.83%2C41%2C9.31q3.8%2C9.11%2C7.61%2C18.21a6.73%2C6.73%2C0%2C0%2C0%2C1.22%2C2h-6.4a3.29%2C3.29%2C0%2C0%2C0-.23-2.3c-.83-2.13-2.84-6.78-2.84-6.78H30.23s-1.91%2C4.62-2.9%2C7a6.2%2C6.2%2C0%2C0%2C0-.59%2C2H22.42a10.53%2C10.53%2C0%2C0%2C0%2C1.8-3.2Q28.62%2C15.6%2C33%2C4.9c.67-1.64.7-3.79-.31-4.9M31.32%2C17.49h7.73c-1.26-3.37-2.4-6.59-3.71-10.07-1.36%2C3.47-2.7%2C6.69-4%2C10.07%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M95.94%2C0h4.47s.08.2.14.36q1.88%2C4.47%2C3.74%2C8.94%2C3.8%2C9.11%2C7.61%2C18.21a6.73%2C6.73%2C0%2C0%2C0%2C1.22%2C2h-6.4a3.29%2C3.29%2C0%2C0%2C0-.23-2.3c-.83-2.13-2.84-6.78-2.84-6.78H93.51s-1.91%2C4.62-2.9%2C7a6.2%2C6.2%2C0%2C0%2C0-.59%2C2H85.7a10.53%2C10.53%2C0%2C0%2C0%2C1.8-3.2Q91.89%2C15.6%2C96.25%2C4.9c.67-1.64.7-3.79-.31-4.9M94.6%2C17.49h7.73c-1.26-3.37-2.4-6.59-3.71-10.07-1.36%2C3.47-2.7%2C6.69-4%2C10.07%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M166.34%2C1.91l.75-1.9H147.28a2.06%2C2.06%2C0%2C0%2C1%2C.5%2C1.4V27.18a4.89%2C4.89%2C0%2C0%2C1-.5%2C2.31h18.32l.75-1.9H152.49V14.51h11.28l.75-1.9h-12V1.91Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M20.14%2C6.94a6.67%2C6.67%2C0%2C0%2C0-2.58-4.65%2C11.38%2C11.38%2C0%2C0%2C0-7-2.25C8.79%2C0%2C6.94%2C0%2C5.19%2C0H0a2.05%2C2.05%2C0%2C0%2C1%2C.5%2C1.4V27.23A4.49%2C4.49%2C0%2C0%2C1%2C0%2C29.49H5.72a4.51%2C4.51%2C0%2C0%2C1-.5-2.25V16.64H8.39A17.94%2C17.94%2C0%2C0%2C0%2C13.33%2C16a9.92%2C9.92%2C0%2C0%2C0%2C4.81-2.7%2C7.63%2C7.63%2C0%2C0%2C0%2C2-6.38M9.47%2C14.5a19.33%2C19.33%2C0%2C0%2C1-4.25.19v-13h0s0%2C0%2C0%2C0A46.48%2C46.48%2C0%2C0%2C1%2C10%2C1.92a6%2C6%2C0%2C0%2C1%2C5.19%2C6c.13%2C3.77-2.41%2C6-5.77%2C6.59%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M180.14%2C27.58V1.41a2.06%2C2.06%2C0%2C0%2C1%2C.5-1.4h-5.72a2.06%2C2.06%2C0%2C0%2C1%2C.5%2C1.4V27.18a4.88%2C4.88%2C0%2C0%2C1-.5%2C2.31H191l.75-1.9Z%22%2F%3E%3Cpath%20class%3D%22cls-1%22%20d%3D%22M78.75%2C27.1A39%2C39%2C0%2C0%2C1%2C75.24%2C23a76%2C76%2C0%2C0%2C0-6-6.83%2C10.22%2C10.22%2C0%2C0%2C0%2C1.31-.26%2C9.93%2C9.93%2C0%2C0%2C0%2C4.86-2.62%2C7.62%2C7.62%2C0%2C0%2C0%2C2-6.38%2C6.68%2C6.68%2C0%2C0%2C0-2.58-4.65%2C11.38%2C11.38%2C0%2C0%2C0-7-2.24c-1.76%2C0-3.59%2C0-5.35%2C0H57.28a2.06%2C2.06%2C0%2C0%2C1%2C.5%2C1.4V27.24a4.46%2C4.46%2C0%2C0%2C1-.5%2C2.25H63a4.46%2C4.46%2C0%2C0%2C1-.5-2.25V16.34h.12a2.35%2C2.35%2C0%2C0%2C1%2C.91.18%2C2.46%2C2.46%2C0%2C0%2C1%2C.94.71c3.89%2C4.61%2C5.06%2C6.2%2C5.06%2C6.2a33.16%2C33.16%2C0%2C0%2C0%2C4%2C4.77c.56.55%2C1.05%2C1%2C1.39%2C1.26h6.48a34.27%2C34.27%2C0%2C0%2C1-2.68-2.38M62.5%2C14.46V1.66a47.06%2C47.06%2C0%2C0%2C1%2C4.83.25%2C5.92%2C5.92%2C0%2C0%2C1%2C5.19%2C6c0%2C4.34-2.41%2C5.75-5.77%2C6.37a19.57%2C19.57%2C0%2C0%2C1-4.25.19%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
 
-function ButtonAppBar(props) {
-  const { classes } = props;
+function Navbar(props) {
+  let links = ['Our Story', 'Shop All', 'Material Labs', 'My Account'];
+  let infoText = 'Free standard shipping within the United States';
+
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="title" color="inherit" className={classes.flex}>
-            PARAVEL
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
+    <div className='navbar'>
+      <div className='navbar__links'>
+        <img className='navbar__logo' src={paravelImageSrc}></img>
+        {links.map(link => <a key={link} href='#' className='navbar__link'>{link}</a>)}
+      </div>
+      <div className='navbar__info'>{infoText}</div>
     </div>
   );
 }
 
-ButtonAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(ButtonAppBar);
+export default Navbar;

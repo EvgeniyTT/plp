@@ -1,0 +1,38 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.navbar__links {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar__link {
+  color: #c18536;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.navbar__link:hover {
+  border-bottom: 2px solid #c18536;
+}
+
+.navbar__logo {
+  width: 129px;
+  height: 19px;
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar__info {
+  background-color: #33445e;
+  padding: 10px 12px;
+  color: #fff;
+  text-align: center;
+}

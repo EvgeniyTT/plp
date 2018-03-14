@@ -1,0 +1,24 @@
+
+.filters-bar {
+  color: #c18536;
+}
+
+.filters-bar__filter-link {
+  background-size: contain;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAAxklEQ…x2kJcbAECd+TDsCJpuChOSiDPqa6ytUsiLNQDgcb/2YgDwBGz22+/plrNOAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  display: inline-block;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+  
+  .hiddendiv {
+    display:none;
+    height:50px;
+    background-color:green;
+  }
+  
+  .filters-bar__filter-link:focus + .hiddendiv{
+    display:block;
+  }

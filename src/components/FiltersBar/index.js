@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchFilters } from '../../store/actions'
 import Filter from '../Filter';
-
+import './style.css';
 
 export class _FiltersBar extends React.Component {
 
@@ -24,7 +24,12 @@ export class _FiltersBar extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className='filters-bar'>
+        <span>Filter:</span>
+        { filters.map(filter => <div key={filter.id} tabIndex="1" className="filters-bar__filter-link">{filter.name.toUpperCase()}</div>) }
+        <div className="hiddendiv"></div>
+
+
         { filters.map(filter => <Filter key={filter.id} filter={filter} />) }
       </div>
     );
