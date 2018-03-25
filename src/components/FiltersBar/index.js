@@ -26,11 +26,14 @@ export class _FiltersBar extends React.Component {
     return (
       <div className='filters-bar'>
         <span>Filter:</span>
-        { filters.map(filter => <div key={filter.id} tabIndex="1" className="filters-bar__filter-link">{filter.name.toUpperCase()}</div>) }
-        <div className="hiddendiv"></div>
-
-
-        { filters.map(filter => <Filter key={filter.id} filter={filter} />) }
+        { filters.map(filter => (
+          <div key={filter.id} className="action-list__item sub-list-arrow">
+            <div tabIndex="1" className="filters-bar__filter-link arrow">{filter.name.toUpperCase()}</div>
+            <ul className="sub-action-list">
+              <li><Filter key={filter.id} filter={filter} /></li>
+            </ul>
+          </div>
+        ))}
       </div>
     );
   }

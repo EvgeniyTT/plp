@@ -4,17 +4,24 @@ import { connect } from 'react-redux';
 import './style.css';
 
 const AvailableColor = props => {
-  const { color } = props;
+  const { colorItem, isSelected, onColorClick } = props;
 
+  const divStyle = {
+    color: colorItem.color,
+    backgroundImage: `url(${colorItem.image})`,
+  };
   return (
-    <div className={`color ${color.name} ${isSelected ? 'selected' : null}`}>
-      <img src={`${process.env.PUBLIC_URL}/assets/img/${color.image}`} />
+    <div
+      key={colorItem.id}
+      className={`color ${colorItem.name}${isSelected ? ' selected' : ''}`}
+      onClick={() => { onColorClick(colorItem.id) }}
+      style={divStyle}>
     </div>
-  );
+  )
 }
 
 AvailableColor.propTypes = {
-  color: PropTypes.shape({
+  colorItem: PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.string,
     label: PropTypes.string,

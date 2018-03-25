@@ -18,6 +18,7 @@
 }
 
 .navbar__link:hover {
+  margin-bottom: 8px;
   border-bottom: 2px solid #c18536;
 }
 

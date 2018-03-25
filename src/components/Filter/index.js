@@ -15,18 +15,18 @@ export class _Filter extends React.Component {
   constructor(props) {
     super(props);
     this.filter = props.filter;
-    this.state = { ...props.filter, optionsId: [] };
+    this.state = { filter: { ...props.filter, selectedOptionsId: [] } };
   }
 
   toggleChange = event => {
     const filterId = parseInt(event.target.id);
-    let optionsId = this.state.optionsId;
+    let selectedOptionsId = this.state.filter.selectedOptionsId;
     if (event.target.checked) {
-      optionsId.push(filterId);
+      selectedOptionsId.push(filterId);
     } else {
-      optionsId = optionsId.filter(id => id !== filterId);
+      selectedOptionsId = selectedOptionsId.filter(id => id !== filterId);
     }
-    this.setState({ ...this.state.filter, optionsId }, () => { this.props.dispatch(filterProducts(this.state)) })
+    this.setState({ filter: { ...this.state.filter, selectedOptionsId } }, () => { this.props.dispatch(filterProducts(this.state.filter)) })
   }
 
   render() {

@@ -33,15 +33,21 @@ export const reducer = (state = initialState, action, storeState) => {
       };
 
     case FILTER_PRODUCTS:
- 
-      let newFilters = state.appliedFilters.find(filter => filter.id == action.filter.id)
+       let newFilters = state.appliedFilters.find(filter => filter.id == action.filter.id)
       ? state.appliedFilters.map(filter => filter.id == action.filter.id ? action.filter : filter)
       : [ ...state.appliedFilters, action.filter]
 
-      newFilters = newFilters.filter(filter => filter.optionsId.length);
+      newFilters = newFilters.filter(filter => filter.selectedOptionsId.length); 
 
-      let filteredProd = newFilters.reduce((products, filter) => 
-        products.filter(product => filter.optionsId.includes(product[filter.name]))
+
+
+      let filteredProd = newFilters.reduce((products, filter) => {
+        if (filter.case === '1-1') {
+          return products.filter(product => filter.selectedOptionsId.includes(product[filter.prop]))
+        } else if (filter.case === '1-many') {
+          return products.filter(product => product[filter.arr].some(item => filter.selectedOptionsId.includes(item[filter.prop])))
+        }
+      }
       , state.allProducts)
 
       return {
@@ -49,6 +55,7 @@ export const reducer = (state = initialState, action, storeState) => {
         appliedFilters: newFilters,
         filteredProducts: filteredProd
       };
+
 
     default:
       return state;
