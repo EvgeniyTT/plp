@@ -108,9 +108,9 @@ export const filters = [
   },
   {
     id: 1,
-    arr: 'colors',
-    prop: 'colorId',
     case: '1-many',
+    array: 'colors',
+    prop: 'colorId',
     name: 'color',
     options: colors
   }

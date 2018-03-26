@@ -37,19 +37,18 @@ export const reducer = (state = initialState, action, storeState) => {
       ? state.appliedFilters.map(filter => filter.id == action.filter.id ? action.filter : filter)
       : [ ...state.appliedFilters, action.filter]
 
-      newFilters = newFilters.filter(filter => filter.selectedOptionsId.length); 
-
-
+      newFilters = newFilters.filter(filter => filter.selectedOptionsId.length); // remove empty filters without selected options
 
       let filteredProd = newFilters.reduce((products, filter) => {
         if (filter.case === '1-1') {
           return products.filter(product => filter.selectedOptionsId.includes(product[filter.prop]))
         } else if (filter.case === '1-many') {
-          // return products.filter(product => product[filter.arr].some(item => filter.selectedOptionsId.includes(item[filter.prop])))
+          // code for not duplicating the same product with different colors
+          // return products.filter(product => product[filter.array].some(item => filter.selectedOptionsId.includes(item[filter.prop])))
           let filtered = [];
           products.forEach(product => {
             filter.selectedOptionsId.forEach(option => {
-              if (product[filter.arr].find(item => item[filter.prop] === option))
+              if (product[filter.array].find(item => item[filter.prop] === option))
                 filtered.push({ ...product, selectedColorId: option })
             })
           })
