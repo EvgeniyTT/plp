@@ -9,7 +9,7 @@ export class _ProductCard extends React.Component {
 
   constructor(props) {
     super(props);
-    let selectedColorId = props.selectedColorId || props.product.colors[0].colorId
+    let selectedColorId = props.product.selectedColorId || props.product.colors[0].colorId
     this.state = { selectedColorId };
   }
 

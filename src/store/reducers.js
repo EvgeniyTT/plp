@@ -45,7 +45,15 @@ export const reducer = (state = initialState, action, storeState) => {
         if (filter.case === '1-1') {
           return products.filter(product => filter.selectedOptionsId.includes(product[filter.prop]))
         } else if (filter.case === '1-many') {
-          return products.filter(product => product[filter.arr].some(item => filter.selectedOptionsId.includes(item[filter.prop])))
+          // return products.filter(product => product[filter.arr].some(item => filter.selectedOptionsId.includes(item[filter.prop])))
+          let filtered = [];
+          products.forEach(product => {
+            filter.selectedOptionsId.forEach(option => {
+              if (product[filter.arr].find(item => item[filter.prop] === option))
+                filtered.push({ ...product, selectedColorId: option })
+            })
+          })
+          return filtered;
         }
       }
       , state.allProducts)
