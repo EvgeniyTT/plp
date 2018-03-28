@@ -39,6 +39,8 @@ export const reducer = (state = initialState, action, storeState) => {
 
       newFilters = newFilters.filter(filter => filter.selectedOptionsId.length); // remove empty filters without selected options
 
+      console.log('NEW FILTERS: ', newFilters);
+
       let filteredProd = newFilters.reduce((products, filter) => {
         if (filter.case === '1-1') {
           return products.filter(product => filter.selectedOptionsId.includes(product[filter.prop]))
@@ -49,6 +51,7 @@ export const reducer = (state = initialState, action, storeState) => {
           products.forEach(product => {
             filter.selectedOptionsId.forEach(option => {
               if (product[filter.array].find(item => item[filter.prop] === option))
+              console.log('PUSH');
                 filtered.push({ ...product, selectedColorId: option })
             })
           })

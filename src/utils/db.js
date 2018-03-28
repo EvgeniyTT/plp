@@ -121,30 +121,358 @@ export const products = [
     categoryId: 0,
     colors: [
       {
+        colorId: 6,
+        isAvailable: true,
+        isPersonalize: false,
+        image: '1-cadet.png',
+        price: 360
+      },
+      {
         colorId: 0,
         isAvailable: true,
         isBestSeller: true,
         isPersonalize: true,
-        image: '1_domino.png'
+        image: '1-domino.png',
+        price: 345
       },
       {
         colorId: 4,
         isAvailable: false,
         isPersonalize: false,
         preoderDate: '03/15/18',
-        image: '1_scout.png'
+        image: '1-scout.png',
+        price: 335
       },
       {
         colorId: 8,
         isAvailable: false,
-        image: '1_jetty.png'
+        image: '1-jetty.png',
+        price: 350
       },
     ],
-    description: 'some description',
+    description: 'Case description',
     id: 0,
-    label: 'Label 1',
-    name: 'product',
-    price: 345
+    label: 'Case',
+    name: 'case',
+  },
+  {
+    categoryId: 3,
+    colors: [
+      {
+        colorId: 0,
+        isAvailable: true,
+        isBestSeller: true,
+        isPersonalize: true,
+        image: 'duffel_domino.png',
+        price: 166
+      },
+      {
+        colorId: 4,
+        isAvailable: false,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'duffel_scout.png',
+        price: 213
+      },
+      {
+        colorId: 8,
+        isNew: true,
+        isAvailable: false,
+        image: 'duffel_jetty.png',
+        price: 173
+      },
+      {
+        colorId: 6,
+        isAvailable: true,
+        image: 'duffel_cadet.png',
+        price: 178
+      },
+    ],
+    description: 'Duffel description',
+    id: 20,
+    label: 'Duffel',
+    name: 'duffel'
+  },
+  {
+    categoryId: 2,
+    colors: [
+      {
+        colorId: 4,
+        isAvailable: true,
+        isBestSeller: true,
+        isPersonalize: true,
+        image: 'angle-scout.png',
+        price: 215
+      },
+      {
+        colorId: 0,
+        isAvailable: false,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'angle-domino.png',
+        price: 220
+      },
+      {
+        colorId: 6,
+        isAvailable: true,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'angle-cadet.png',
+        price: 225
+      },
+      {
+        colorId: 9,
+        isAvailable: false,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'angle-mallard.png',
+        price: 223
+      },
+    ],
+    description: 'Angle description',
+    id: 14,
+    isBestSeller: false,
+    isNew: false,
+    label: 'Angle',
+    name: 'angle'
+  },
+  {
+    categoryId: 4,
+    colors: [
+      {
+        colorId: 6,
+        isAvailable: true,
+        isBestSeller: true,
+        isPersonalize: true,
+        image: 'pochette-cadet-small.png',
+        price: 53
+      },
+      {
+        colorId: 0,
+        isAvailable: false,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'pochette-domino-small.png',
+        price: 52
+      },
+      {
+        colorId: 4,
+        isAvailable: false,
+        image: 'pochette-scout-small.png',
+        price: 51
+      },
+      {
+        colorId: 9,
+        isAvailable: true,
+        isNew: true,
+        image: 'pochette-mallard-small.png',
+        price: 55
+      },
+      {
+        colorId: 8,
+        isAvailable: true,
+        isPersonalize: true,
+        image: 'pochette-jetty-small.png',
+        price: 50
+      },
+    ],
+    description: 'Pochette small description',
+    id: 3,
+    label: 'Pochette small',
+    name: 'pochette-small'
+  },
+  {
+    categoryId: 2,
+    colors: [
+      {
+        colorId: 6,
+        isAvailable: true,
+        isPersonalize: false,
+        image: 'cardcase-cadet.png',
+        price: 20
+      },
+      {
+        colorId: 0,
+        isAvailable: true,
+        isBestSeller: true,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'cardcase-domino.png',
+        price: 25
+      },
+      {
+        colorId: 4,
+        isAvailable: false,
+        isNew: true,
+        image: 'cardcase-scout.png',
+        price: 22
+      },
+      {
+        colorId: 9,
+        isAvailable: true,
+        image: 'cardcase-mallard.png',
+        price: 21
+      },
+      {
+        colorId: 8,
+        isAvailable: false,
+        isPersonalize: true,
+        image: 'cardcase-jetty.png',
+        price: 24
+      },
+    ],
+    description: 'Card case description',
+    id: 7,
+    label: 'Card Case',
+    name: 'cardcase'
+  },
+  {
+    categoryId: 4,
+    colors: [
+      {
+        colorId: 6,
+        isAvailable: true,
+        image: 'pochette-cadet-large.png',
+        price: 63
+      },
+      {
+        colorId: 0,
+        isAvailable: false,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'pochette-domino-large.png',
+        price: 62
+      },
+      {
+        colorId: 4,
+        isAvailable: true,
+        isBestSeller: true,
+        image: 'pochette-scout-large.png',
+        price: 61
+      },
+      {
+        colorId: 9,
+        isAvailable: true,
+        image: 'pochette-mallard-large.png',
+        price: 65
+      },
+      {
+        colorId: 8,
+        isAvailable: true,
+        isPersonalize: true,
+        image: 'pochette-jetty-large.png',
+        price: 60
+      },
+    ],
+    description: 'Pochette large description',
+    id: 28,
+    label: 'Pochette large',
+    name: 'pochette-large'
+  },
+  {
+    categoryId: 2,
+    colors: [
+      {
+        colorId: 6,
+        isBestSeller: true,
+        isAvailable: true,
+        image: 'washkit-cadet.png',
+        price: 75
+      },
+      {
+        colorId: 0,
+        isAvailable: true,
+        isNew: true,
+        image: 'washkit-domino.png',
+        price: 80
+      },
+      {
+        colorId: 4,
+        isAvailable: false,
+        isBestSeller: true,
+        image: 'washkit-scout.png',
+        price: 75
+      },
+      {
+        colorId: 9,
+        isAvailable: false,
+        isPersonalize: true,
+        preoderDate: '03/15/18',
+        image: 'washkit-mallard.png',
+        price: 82
+      },
+      {
+        colorId: 8,
+        isAvailable: false,
+        isPersonalize: false,
+        image: 'washkit-jetty.png',
+        price: 77
+      },
+    ],
+    description: 'Wash-Kit description',
+    id: 11,
+    label: 'Wash-Kit',
+    name: 'washkit'
+  },
+  {
+    categoryId: 0,
+    colors: [
+      {
+        colorId: 6,
+        isAvailable: true,
+        image: 'weekender-cadet.png',
+        price: 340
+      },
+    ],
+    description: 'Weekender bag description',
+    id: 12,
+    label: 'Weekender bag',
+    name: 'weekender-bag',
+  },
+  {
+    categoryId: 2,
+    colors: [
+      {
+        colorId: 6,
+        isAvailable: true,
+        isPersonalize: false,
+        image: 'passkeeper-cadet.png',
+        price: 20
+      },
+      {
+        colorId: 0,
+        isAvailable: true,
+        isBestSeller: true,
+        isPersonalize: false,
+        preoderDate: '03/15/18',
+        image: 'passkeeper-domino.png',
+        price: 25
+      },
+      {
+        colorId: 4,
+        isAvailable: false,
+        isNew: true,
+        image: 'passkeeper-scout.png',
+        price: 22
+      },
+      {
+        colorId: 9,
+        isAvailable: true,
+        image: 'passkeeper-mallard.png',
+        price: 21
+      },
+      {
+        colorId: 8,
+        isAvailable: false,
+        isPersonalize: true,
+        image: 'passkeeper-jetty.png',
+        price: 24
+      },
+    ],
+    description: 'Passkeeper description',
+    id: 9,
+    label: 'Passkeeper',
+    name: 'passkeeper'
   },
   // {
   //   categoryId: 4,
@@ -203,35 +531,6 @@ export const products = [
   //   label: 'Label fbdrb',
   //   name: 'product',
   //   price: 114
-  // },
-  // {
-  //   categoryId: 4,
-  //   colors: [
-  //     {
-  //       colorId: 6,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 3,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description4',
-  //   id: 3,
-  //   isBestSeller: true,
-  //   isNew: false,
-  //   image: 'BB-Sm-Pouch_PLP.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 113
   // },
   // {
   //   categoryId: 0,
@@ -321,35 +620,6 @@ export const products = [
   //   price: 534
   // },
   // {
-  //   categoryId: 2,
-  //   colors: [
-  //     {
-  //       colorId: 6,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 3,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description33',
-  //   id: 7,
-  //   isBestSeller: false,
-  //   isNew: false,
-  //   image: 'Cadet-CardCase-Back-PLP.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 111
-  // },
-  // {
   //   categoryId: 0,
   //   colors: [
   //     {
@@ -378,35 +648,7 @@ export const products = [
   //   name: 'product',
   //   price: 111
   // },
-  // {
-  //   categoryId: 2,
-  //   colors: [
-  //     {
-  //       colorId: 6,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 3,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description33',
-  //   id: 9,
-  //   isBestSeller: false,
-  //   isNew: false,
-  //   image: 'cadet-passkeeper-plp1.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 166
-  // },
+
   // {
   //   categoryId: 0,
   //   colors: [
@@ -465,35 +707,7 @@ export const products = [
   //   name: 'product',
   //   price: 166
   // },
-  // {
-  //   categoryId: 0,
-  //   colors: [
-  //     {
-  //       colorId: 6,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 3,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description33',
-  //   id: 12,
-  //   isBestSeller: false,
-  //   isNew: false,
-  //   image: 'Cadet-Weekender-PLP2.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 166
-  // },
+
   // {
   //   categoryId: 0,
   //   colors: [
@@ -519,35 +733,6 @@ export const products = [
   //   isBestSeller: false,
   //   isNew: false,
   //   image: 'Domino_PLP.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 166
-  // },
-  // {
-  //   categoryId: 2,
-  //   colors: [
-  //     {
-  //       colorId: 1,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 0,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description33',
-  //   id: 14,
-  //   isBestSeller: false,
-  //   isNew: false,
-  //   image: 'Domino-Angle-PLP.png',
   //   label: 'Label fbdrb',
   //   name: 'product',
   //   price: 166
@@ -693,35 +878,6 @@ export const products = [
   //   isBestSeller: false,
   //   isNew: false,
   //   image: 'Domino-Small_zZip_Top_Pouch.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 166
-  // },
-  // {
-  //   categoryId: 3,
-  //   colors: [
-  //     {
-  //       colorId: 0,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 3,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description33',
-  //   id: 20,
-  //   isBestSeller: false,
-  //   isNew: false,
-  //   image: 'duffel_blue.png',
   //   label: 'Label fbdrb',
   //   name: 'product',
   //   price: 166
@@ -929,35 +1085,7 @@ export const products = [
   //   name: 'product',
   //   price: 166
   // },
-  // {
-  //   categoryId: 4,
-  //   colors: [
-  //     {
-  //       colorId: 8,
-  //       isAvailable: true,
-  //       isBestSeller: true,
-  //       isPersonalize: true
-  //     },
-  //     {
-  //       colorId: 3,
-  //       isAvailable: false,
-  //       isPersonalize: false,
-  //       preoderDate: '03/15/18'
-  //     },
-  //     {
-  //       colorId: 4,
-  //       isAvailable: false,
-  //     },
-  //   ],
-  //   description: 'some description33',
-  //   id: 28,
-  //   isBestSeller: false,
-  //   isNew: false,
-  //   image: 'Mallard-Large-Zip_Top_Pouch.png',
-  //   label: 'Label fbdrb',
-  //   name: 'product',
-  //   price: 166
-  // },
+
   // {
   //   categoryId: 0,
   //   colors: [

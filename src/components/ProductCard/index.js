@@ -9,7 +9,7 @@ export class _ProductCard extends React.Component {
 
   constructor(props) {
     super(props);
-    let selectedColorId = props.product.selectedColorId || props.product.colors[0].colorId
+    let selectedColorId = typeof props.product.selectedColorId === 'undefined' ? props.product.colors[0].colorId : props.product.selectedColorId
     this.state = { selectedColorId };
   }
 
@@ -26,18 +26,18 @@ export class _ProductCard extends React.Component {
     console.log('this.state.selectedColorId: ', this.state.selectedColorId)
     return (
       <div className="product-card">
-        {product.isBestSeller
-          ? <img src={`${process.env.PUBLIC_URL}/assets/img/BestSeller1.png`} className="best-seller" />
+        {selectedColor.isBestSeller
+          ? <img src={`${process.env.PUBLIC_URL}/assets/img/best-seller.png`} className="best-seller" />
           : null
         }
-        {!product.isBestSeller && product.isNew
-          ? <img src={`${process.env.PUBLIC_URL}/assets/img/New1.png`} className="new" />
+        {!selectedColor.isBestSeller && selectedColor.isNew
+          ? <img src={`${process.env.PUBLIC_URL}/assets/img/new.png`} className="new" />
           : null
         }
         <img className="image" src={`${process.env.PUBLIC_URL}/assets/img/${selectedColor.image}`} />
         <a href="#">{product.label}</a>
         <a href="#">{product.description}</a>
-        <a href="#">${product.price}</a>
+        <a href="#">${selectedColor.price}</a>
 
         <AvailableColorsBar colors={product.colors} onColorClick={this.onColorClick} selectedColorId={this.state.selectedColorId} />
    

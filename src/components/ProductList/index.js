@@ -26,7 +26,12 @@ export class _ProductList extends React.Component {
 
     return (
       <div className="product-list">
-        { filteredProducts.map(product => <ProductCard key={product.id + product.selectedColorId} product={product} />) }
+        { filteredProducts.map(product =>
+          <ProductCard
+            key={product.id + (((typeof product.selectedColorId !== 'undefined') && product.selectedColorId.toString()) || '')}
+            product={product}
+          />)
+        }
       </div>
     );
   }
